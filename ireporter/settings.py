@@ -73,12 +73,37 @@ WSGI_APPLICATION = 'ireporter.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+if os.environ.get("APP_ENV") == "Development":
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME':os.environ.get('DB_NAME'),
+            'USER':os.environ.get('DB_USER'),
+            'PASSWORD':os.environ.get('DB_PASS'),
+            'HOST':os.environ.get('DB_HOST'),
+            'PORT':os.environ.get('DB_PORT')
+        }
     }
-}
+    
+if os.environ.get("APP_ENV") == "Testing":
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+
+if os.environ.get("APP_ENV") == "Production":
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME':os.environ.get('DB_NAME'),
+            'USER':os.environ.get('DB_USER'),
+            'PASSWORD':os.environ.get('DB_PASS'),
+            'HOST':os.environ.get('DB_HOST'),
+            'PORT':os.environ.get('DB_PORT')
+        }
+    }
 
 
 # Password validation
