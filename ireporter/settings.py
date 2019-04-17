@@ -83,7 +83,6 @@ DATABASES = {
         'PORT':os.environ.get('DB_PORT')
 
     }
-    
 }
 
 
