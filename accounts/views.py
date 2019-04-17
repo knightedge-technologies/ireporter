@@ -4,7 +4,7 @@ from rest_framework.views import APIView
 from django.contrib.auth.models import User
 from rest_framework.response import Response
 from django.contrib.auth.password_validation import ValidationError
-from .serializers import UserSerializer
+from .serializers import UserSerializer, LoginSerializer
 
 
 class SignUp(APIView):
@@ -44,4 +44,24 @@ class SignUp(APIView):
         return Response(
             data={"status": 400, "errors": serializer.errors},
             status=status.HTTP_400_BAD_REQUEST,
+        )
+
+class Login(APIView):
+    """
+    post:
+    login a user.
+    """
+
+    serializer_class = LoginSerializer
+    def post(self, request, *args, **kwargs):
+
+        serializer = LoginSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        return Response(
+            data={"Username": serializer.data['username'],
+                  "Email": serializer.data['email'],
+                  "token": serializer.data['token']},
+            status=status.HTTP_200_OK
+
         )
