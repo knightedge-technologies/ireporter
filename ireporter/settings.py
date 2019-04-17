@@ -42,11 +42,15 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig'
 ]
 
-# REST_FRAMEWORK = {
-#     'DEFAULT_AUTHENTICATION_CLASSES': [
-#         "ireporter.auth.auth_default.BearerAuthentication",
-#     ],
-# }
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+        "ireporter.auth.auth_default.BearerAuthentication"
+    ],
+    "EXCEPTION_HANDLER": "ireporter.utils.exception_handler.custom_exception_handler",
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
