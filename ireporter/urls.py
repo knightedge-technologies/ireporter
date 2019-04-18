@@ -16,8 +16,14 @@ Including another URLconf
 from django.conf.urls import include
 from django.urls import path
 from django.contrib import admin
+from rest_framework.routers import DefaultRouter
+from redflag.views import RedflagViewSet
+
+router = DefaultRouter()
+router.register('api/v1/redflags', RedflagViewSet)
 
 urlpatterns = [
+    path('', include(router.urls)),
     path('admin/', admin.site.urls),
     path('api/v1/accounts/', include('accounts.urls')),
 ]
