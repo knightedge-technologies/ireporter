@@ -27,14 +27,17 @@ iReporter enables any/every citizen to bring any form of corruption to the notic
 The backend is built in **Django**, which can be run by `python manage.py runserver` command in terminal.
 
 ##### Application endpoints
-| Name and method			 | Endpoint					    | Heroku link				   |
-| :------------------------- | :--------------------------- | :--------------------------- |
-| User sign up (POST)		 | `/api/v1/accounts/signup/`	| ---------------------------- |
-| User login (POST)			 | `/api/v1/accounts/login/`	| ---------------------------- |
+| Name and method			 | Endpoint					    | Description 				       |
+| :------------------------- | :--------------------------- | :------------------------------- |
+| User sign up (POST)		 | `/api/v1/accounts/signup/`	| For registering new accounts     |
+| User login (POST)			 | `/api/v1/accounts/login/`	| For logging into the application |
+
+##### Heroku Link
+https://ireporter-dojo.herokuapp.com
 
 ##### Technologies used
-- Python 3
-- Django
-- Django Rest Framework
-- Pytest
-
+- Git - For version control
+- Pivotal Tracker - For Project management
+- Travis CI - For continuous integration
+- Coveralls - For test coverage reports
+- Slack - As a collaboration tool
