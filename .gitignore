@@ -110,5 +110,3 @@ venv.bak/
 # macOS
 *.DS_Store
 
-#migrations
-*/migrations
