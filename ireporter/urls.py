@@ -16,8 +16,33 @@ Including another URLconf
 from django.conf.urls import include
 from django.urls import path
 from django.contrib import admin
+from rest_framework import permissions
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
+
+schema_view = get_schema_view(
+   openapi.Info(
+      title="Ireporter API",
+      default_version='v1',
+      description=(
+        "Corruption is a huge bane to Africa’s development. "
+        "African countries must develop novel and localised solutions that will curb this menace,"
+        "hence the birth of iReporter.  "
+        "iReporter enables any/every citizen to bring any form of corruption to the notice of appropriate authorities "
+        "and the general public. Users can also report on things that needs government intervention."
+      ),
+     license=openapi.License(name="Andela License"),
+   ),
+   public=True,
+   permission_classes=(permissions.AllowAny,),
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/accounts/', include('accounts.urls')),
+    path(
+        "docs/",
+        schema_view.with_ui("swagger", cache_timeout=0),
+        name="schema-swagger-ui",
+    ),
 ]
