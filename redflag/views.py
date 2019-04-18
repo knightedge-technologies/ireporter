@@ -5,9 +5,9 @@ from redflag.serializers import RedflagSerializer
 
 
 class RedflagViewSet(ModelViewSet):
-    queryset = Redflag.objects.all().order_by('redflag_date')
+    queryset = Redflag.objects.all().order_by('date')
     serializer_class = RedflagSerializer
 
     def perform_create(self, serializer):
         """API endpoint for creating a redflag"""
-        serializer.save(redflag_createdby=self.request.user)
+        serializer.save(createdby=self.request.user)

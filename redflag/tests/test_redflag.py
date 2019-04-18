@@ -27,11 +27,11 @@ class RedflagTests(APITestCase):
     def test_create_redflag(self):
         """test successful creation of a redflag"""
         post_data={
-            "redflag_title": "test one",
-            "redflag_comment": "this is the first comment",
-            "redflag_image": "imageone",
-            "redflag_video": "videoone",
-            "redflag_location": "19, 24"
+            "title": "test one",
+            "comment": "this is the first comment",
+            "image": "imageone",
+            "video": "videoone",
+            "location": "19, 24"
         }
         client=APIClient(enforce_csrf_checks=True)
         response=client.post(self.redflag_url, post_data,
@@ -41,11 +41,10 @@ class RedflagTests(APITestCase):
     def test_create_redflag_failed(self):
         """test unsuccessful creation of a redflag"""
         post_data={
-            # "redflag_title": "test one",
-            "redflag_comment": "this is the first comment",
-            "redflag_image": "imageone",
-            "redflag_video": "videoone",
-            "redflag_location": "19, 24"
+            "comment": "this is the first comment",
+            "image": "imageone",
+            "video": "videoone",
+            "location": "19, 24"
         }
         client=APIClient(enforce_csrf_checks=True)
         response=client.post(self.redflag_url, post_data,

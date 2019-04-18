@@ -1,10 +1,10 @@
-from rest_framework.serializers import HyperlinkedModelSerializer
+from rest_framework.serializers import HyperlinkedModelSerializer, PrimaryKeyRelatedField, CurrentUserDefault
 from accounts.serializers import UserSerializer
 from redflag.models import Redflag
-class RedflagSerializer(HyperlinkedModelSerializer):
-    redflag_createdby = UserSerializer(read_only=True)
 
+
+class RedflagSerializer(HyperlinkedModelSerializer):
     class Meta:
         model = Redflag
-        fields = ('redflag_title', 'redflag_comment', 'redflag_date', 'redflag_status',
-                  'redflag_image', 'redflag_video', 'redflag_createdby', 'redflag_location')
+        fields = ('title', 'comment', 'date', 'status',
+                  'image', 'video', 'createdby', 'location')
