@@ -25,8 +25,6 @@ SECRET_KEY = '*_*vfzy_l2o7b%ci_a+!%1tuz==qh%(vrz%n0$(2%2lgg!#6o*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -38,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'redflag',
     "rest_framework.authtoken",
     'accounts.apps.AccountsConfig'
 ]
@@ -87,7 +86,7 @@ WSGI_APPLICATION = 'ireporter.wsgi.application'
 ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost',
-    'https://ireporter-dojo.herokuapp.com/'
+    'ireporter-dojo.herokuapp.com'
 ]
 
 # Database
@@ -136,13 +135,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.11/howto/static-files/
-
-
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
@@ -151,7 +143,6 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
-# Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
