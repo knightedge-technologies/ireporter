@@ -31,7 +31,7 @@ pytest==4.4.1
 pytest-cov==2.6.1
 pytest-django==3.4.8
 pytz==2019.1
-PyYAML==5.1
+PyYAML==5.4
 requests==2.21.0
 ruamel.yaml==0.15.92
 simplejson==3.16.0
